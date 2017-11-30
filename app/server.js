@@ -18,7 +18,7 @@ app.use(cors());
 
 
 // Connection to DB
-mongoose.connect('mongodb://localhost/tp2');
+mongoose.connect('mongodb://localhost/tp2',{useMongoClient: true });
 require('./models/equipo.js');
 require('./models/partido.js');
 require('./models/evento.js');
