@@ -22,6 +22,7 @@ mongoose.connect('mongodb://localhost/tp2',{useMongoClient: true });
 require('./models/equipo.js');
 require('./models/partido.js');
 require('./models/evento.js');
+require('./models/TipoEvento.js');
 
 app.use(require('./routes'));
 

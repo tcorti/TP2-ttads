@@ -50,11 +50,11 @@ router.post('/', (req, res, next) => {
           nombre: nombre
       });
 
-      equipo.save((err, team) => {
+      equipo.save((err, equipo) => {
           if (err) {
               res.status(500).send(err);
           }
-          res.status(200).send("Nuevo Equipo agregado \n" + team);
+          res.status(200).send("Nuevo Equipo agregado \n" + equipo);
       });
 });
 
@@ -80,7 +80,7 @@ router.put('/:id', (req, res, next) =>{
 //eliminar un equipo por ID
 router.delete('/:id', (req, res, next) => {
   let id = req.params.id;
-Equipo.findByIdAndRemove(id, (err, team)=>{
+Equipo.findByIdAndRemove(id, (err, equipo)=>{
       if(err){
           res.status(500).send(err);
       }
