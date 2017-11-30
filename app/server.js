@@ -8,8 +8,6 @@ var app            = express();
 
 const port = 3000;
 
-// Connection to DB
-
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,6 +16,14 @@ app.use(methodOverride());
 
 app.use(cors());
 
+
+// Connection to DB
+mongoose.connect('mongodb://localhost/tp2');
+require('./models/equipo.js');
+require('./models/partido.js');
+require('./models/evento.js');
+
+app.use(require('./routes'));
 
 // Example Route
 var router = express.Router();
