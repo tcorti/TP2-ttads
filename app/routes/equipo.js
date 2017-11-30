@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 });
 
 
-//obtener un equipo por id
+//obtener un equipo por ID
 router.get('/:id', (req, res, next) => {
 
   let id = req.params.id
@@ -59,7 +59,23 @@ router.post('/', (req, res, next) => {
 });
 
 
+//modificar un equipo por ID
+router.put('/:id', (req, res, next) =>{
+  let id = req.params.id;
 
+
+  Equipo.findById(id, function(err, equipo) {
+
+    equipo.nombre=req.body.nombre;
+
+        equipo.save((err, equipo) => {
+            if (err) {
+                res.status(500).send(err);
+            }
+            res.status(200).send("equipo modificado \n" +equipo);
+        });
+    });
+});
 
 
 
