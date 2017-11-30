@@ -77,6 +77,19 @@ router.put('/:id', (req, res, next) =>{
     });
 });
 
+//eliminar un equipo por ID
+router.delete('/:id', (req, res, next) => {
+  let id = req.params.id;
+Equipo.findByIdAndRemove(id, (err, team)=>{
+      if(err){
+          res.status(500).send(err);
+      }
+      else{
+              res.status(200).send("equipo eliminado");
+      }
+  });
+});
+
 
 
 module.exports=router;
