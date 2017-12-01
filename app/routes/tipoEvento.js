@@ -69,6 +69,7 @@ router.put('/:id', (req, res, next) =>{
   TipoEvento.findById(id, function(err, tipoEvento) {
 
     tipoEvento.nombre_evento=req.body.nombre_evento;
+    tipoEvento.descripcion=req.body.descripcion;
 
         tipoEvento.save((err, tipoEvento) => {
             if (err) {
