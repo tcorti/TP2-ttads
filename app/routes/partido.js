@@ -1,9 +1,7 @@
 var mongoose = require('mongoose');
 var router=require('express').Router();
 var Partido = mongoose.model('Partido');
-var Equipo = mongoose.model('Equipo');
 var Evento = mongoose.model('Evento');
-var TipoEvento = mongoose.model('TipoEvento');
 
 var ObjectId = mongoose.Types.ObjectId;
 
@@ -130,6 +128,30 @@ router.get('/detalle/:id', (req, res, next) => {
 
   let id = req.params.id
   Partido.findById(id)
+    .populate('equipo1').populate('equipo2')
+    //.populate('eventos')
+    .then(partido =>{
+        if(!partido){ return res.sendStatus(401); }
+// return res.json({'partido': partido})
+        Evento.find({_id:partido.eventos})
+          .populate('clase_evento').populate('equipo')
+          .then(eventos =>{
+              if(!eventos){ return res.sendStatus(401); }
+
+       return res.json({'partido': partido, 'eventos': eventos})
+          })
+
+
+    })
+    .catch(next);
+  });
+
+
+
+
+
+/*  let id = req.params.id
+  Partido.findById(id)
     .populate('partidos')
     .then(partido =>{
         if(!partido){ return res.sendStatus(401); }
@@ -142,7 +164,7 @@ router.get('/detalle/:id', (req, res, next) => {
               if(!equipo1){ return res.sendStatus(401); }
              return res.json({'equipo1': equipo1})
 
-        /*     let id_equipo2 = partido.equipo2
+            let id_equipo2 = partido.equipo2
              Equipo.findById(id_equipo2)
                .populate('equipos')
                .then(equipo2 =>{
@@ -155,14 +177,14 @@ router.get('/detalle/:id', (req, res, next) => {
                       })
 
 
-               })*/
+               })
 
           })
 
     })
     .catch(next);
 });
-
+*/
 
 
 module.exports=router;
