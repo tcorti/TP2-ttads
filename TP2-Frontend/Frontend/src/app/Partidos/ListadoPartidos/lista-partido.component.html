@@ -1,12 +1,18 @@
 <h3>Partidos Activos</h3>
+<br>
+<br>
 
 <!-- <button (click) = "partidosActivos()">Lista</button> -->
-<div *ngFor = "let partido of partidos">
-        <h4>Equipos:</h4>
-        <p>{{partido.equipo1.nombre}}
-        <b>Vs.&nbsp; </b>
-        {{partido.equipo2.nombre}}</p>
-        <h4>Fecha y hora de inicio del partido:</h4>
-        <p>{{partido.fecha_hora_inicio}}</p>
-        <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor = "let partido of partidos">
+            <h4>Equipos:</h4>
+            <p>{{partido.equipo1.nombre}}
+            <b>Vs.&nbsp; </b>
+            {{partido.equipo2.nombre}}</p>
+            <h4>Fecha y hora de inicio del partido:</h4>
+            <p>{{partido.fecha_hora_inicio}}</p>
+            <br>
+        </div>
+    </div>
 </div>

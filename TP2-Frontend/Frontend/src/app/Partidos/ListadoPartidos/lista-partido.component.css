@@ -9,3 +9,9 @@ h3 {
   h1 {
   	text-align: center;
   }
+
+  .col-md-4 {
+    border-style: solid;
+    margin-right: 2px;
+    background-color: #13EE54;
+  }

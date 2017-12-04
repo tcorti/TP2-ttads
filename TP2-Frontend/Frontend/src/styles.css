@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  	background-image: url(https://pm1.narvii.com/6335/1d4164183c01baf4c40f7be0259f61d6c133b54b_hq.jpg);
+    background-size: cover;
+	background-attachment: fixed;  
+}
