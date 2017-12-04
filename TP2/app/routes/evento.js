@@ -19,7 +19,6 @@ router.get('/:id', (req, res, next) => {
 
   let id = req.params.id
   Evento.findById(id)
-    .populate('eventos')
     .then(evento =>{
         if(!evento){ return res.sendStatus(401); }
         return res.json({'evento': evento})

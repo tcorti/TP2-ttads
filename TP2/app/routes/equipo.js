@@ -20,7 +20,6 @@ router.get('/:id', (req, res, next) => {
 
   let id = req.params.id
   Equipo.findById(id)
-    .populate('equipos')
     .then(equipo =>{
         if(!equipo){ return res.sendStatus(401); }
         return res.json({'equipo': equipo})
@@ -33,7 +32,6 @@ router.get('/nombre/:nombre', (req, res, next) => {
 
   let nombre = req.params.nombre
   Equipo.find({nombre:nombre})
-    .populate('equipos')
     .then(equipo =>{
         if(!equipo){ return res.sendStatus(401); }
         return res.json({'equipo': equipo})
