@@ -24,6 +24,10 @@ export class ListaPartidoComponent implements OnInit {
         this.service.getPartidosActivos().subscribe(data => this.partidos = data)
     }
 
+    detallePartido() {
+        
+    }
+
   /*  partidosActivos() {
         this.service.getPartidosActivos().subscribe(data => this.partidos = data)
     }*/
