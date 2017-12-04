@@ -6,20 +6,16 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 
 export class AppService {
-    private firstPathUrl = "http://localhost:3000/api/";
-    data: any;
+    private apiUrl = "http://localhost:3000/api/";
+    data: any = {};
 
     constructor(private http: Http) {
 
     }
 
-    getData(url) {
+  getPartidosActivos() {
+        let url = this.apiUrl + "partidos/activos";
         return this.http.get(url)
         .map((res: Response) => res.json());
-    }
-
-    getPartidosActivos() {
-        let url = this.firstPathUrl +"partidos/activos";
-        return this.getData(url);
     }
 }

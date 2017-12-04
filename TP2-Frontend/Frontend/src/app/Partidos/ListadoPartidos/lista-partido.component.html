@@ -1,19 +1,16 @@
-<h2>
-    Lista de partidos activos
+     <h2>
+    Partidos Activos
 </h2>
-<p>Aqui se muestra la lista de partidos activos</p>
 
-<button (click) = "partidosActivos()">Lista</button>
+<!-- <button (click) = "partidosActivos()">Lista</button> -->
 <div *ngFor = "let partido of partidos">
-       <!-- <h3>Equipos</h3>
-        <p>{{partido.equipo1.nombre}}</p>
-        <b>Vs.</b>
-        <p>{{partido.equipo2.nombre}}</p>
-        <br>-->
-        <h4>Fecha y hora de inicio del partido</h4>
+        <h3>Equipos:</h3>
+        <p>{{partido.equipo1.nombre}}
+        <b>Vs.&nbsp; </b>
+        {{partido.equipo2.nombre}}</p>
+        <h3>Fecha y hora de inicio del partido:</h3>
         <p>{{partido.fecha_hora_inicio}}</p>
+        <br>
+        <br>
+        <br>
 </div>
-
-
-
-

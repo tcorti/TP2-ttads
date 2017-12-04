@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Partido } from '../partido.model';
 import { AppService } from 'app/app.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -13,21 +14,21 @@ import { Observable } from 'rxjs/Observable';
 
 export class ListaPartidoComponent implements OnInit {
     private partidos = [];
-    partidoElegido: any;
+    partidoElegido: Partido;
 
     constructor(private service: AppService) {
 
     }
 
     ngOnInit() {
-        //this.service.getPartidosActivos().subscribe(data => this.partidos = data.results)
-    }
-
-    partidosActivos() {
         this.service.getPartidosActivos().subscribe(data => this.partidos = data)
     }
 
-    onSelect(partido: any): void {
+  /*  partidosActivos() {
+        this.service.getPartidosActivos().subscribe(data => this.partidos = data)
+    }*/
+
+  /*  onSelect(partido: Partido): void {
         this.partidoElegido = partido;
-    }
+    }*/
 }

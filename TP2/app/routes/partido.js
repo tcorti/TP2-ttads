@@ -22,9 +22,11 @@ router.get('/', (req, res, next) => {
 //consultar todos los partidos activos
 router.get('/activos', (req, res, next) => {
   Partido.find({estado:"Activo"})
-    .then(partidos =>{
-        if(!partidos){ return res.sendStatus(401); }
-        return res.json({'partidos': partidos})
+  .populate('equipo1')
+  .populate('equipo2')
+    .then(partido =>{
+        if(!partido){ return res.sendStatus(401); }
+        return res.json(partido)
     })
     .catch(next);
 });
