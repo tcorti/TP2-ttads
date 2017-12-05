@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from 'app/Header/header.component';
 import { PartidosComponent } from 'app/Partidos/partidos.component';
 import { ListaPartidoComponent } from 'app/Partidos/ListadoPartidos/lista-partido.component';
-
+import { PartidoDetalleComponent } from 'app/Partidos/DetallePartido/partido-detalle.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     PartidosComponent,
-    ListaPartidoComponent
+    ListaPartidoComponent,
+    PartidoDetalleComponent
   ],
   imports: [
     BrowserModule,

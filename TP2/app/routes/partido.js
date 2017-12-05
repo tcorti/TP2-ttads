@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var router=require('express').Router();
 var Partido = mongoose.model('Partido');
 var Evento = mongoose.model('Evento');
+var TipoEvento = mongoose.model('TipoEvento');
 
 var ObjectId = mongoose.Types.ObjectId;
 
@@ -24,12 +25,18 @@ router.get('/activos', (req, res, next) => {
   Partido.find({estado:"Activo"})
   .populate('equipo1')
   .populate('equipo2')
+  .populate('eventos')
+  //.populate({
+  // path:'eventos.clase_evento',
+   // model:'TipoEvento'})
     .then(partido =>{
         if(!partido){ return res.sendStatus(401); }
         return res.json(partido)
     })
     .catch(next);
 });
+
+
 
 
 
@@ -136,10 +143,10 @@ router.get('/detalle/:id', (req, res, next) => {
 // return res.json({'partido': partido})
         Evento.find({_id:partido.eventos})
           .populate('clase_evento').populate('equipo')
-          .then(eventos =>{
-              if(!eventos){ return res.sendStatus(401); }
+          .then(evento =>{
+              if(!evento){ return res.sendStatus(401); }
 
-       return res.json({'partido': partido, 'eventos': eventos})
+       return res.json({evento})
           })
 
 

@@ -1,18 +1,14 @@
-<h3>Partidos Activos</h3>
-<br>
-<br>
-
-<!-- <button (click) = "partidosActivos()">Lista</button> -->
+<hr />
 <div class="container">
-    <div class="row">
-        <div class="col-md-4" *ngFor = "let partido of partidos">
-            <h4>Equipos:</h4>
-            <p>{{partido.equipo1.nombre}}
-            <b>Vs.&nbsp; </b>
-            {{partido.equipo2.nombre}}</p>
-            <h4>Fecha y hora de inicio del partido:</h4>
-            <p>{{partido.fecha_hora_inicio}}</p>
-            <br>
-        </div>
-    </div>
+  <h3>Partidos Activos</h3>
+  <br>                                  
+  <div class="dropdown">
+    <button id="btn-drop" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Partidos
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" >
+      <li *ngFor = "let partido of partidos"><a (click)="seleccionarPartido(partido)" href="#">{{partido.equipo1.nombre | uppercase}} vs {{partido.equipo2.nombre | uppercase}}</a></li>
+    </ul>
+  </div>
 </div>
+<br>
+<partido-detalle [partidoActivo]="partidoElegido"></partido-detalle>
