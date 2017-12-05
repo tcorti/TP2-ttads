@@ -1,0 +1,21 @@
+#fecha-well {
+	width:600px;
+}
+
+#text-fecha {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.container-fluid {
+	padding:0px;
+	width:600px;
+}
+
+h4 {
+	text-align: center;
+}
+
+#tabla-eventos {
+	width: 600px;
+}
