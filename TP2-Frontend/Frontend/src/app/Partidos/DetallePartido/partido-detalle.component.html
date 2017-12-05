@@ -2,6 +2,17 @@
 	<p>{{partidoActivo.equipo1.nombre}}</p>
 	<p>{{partidoActivo.equipo2.nombre}}</p>
 	<p>{{partidoActivo.fecha_hora_inicio}}</p>
+	<ul>
+		<li *ngFor="let evento of partidoActivo.eventos; let i = index">
+	  {{i+1}}
+		{{evento.clase_evento.nombre_evento}}
+		{{evento.jugador}}
+	  {{evento.hora_evento}}
+		{{evento.equipo.nombre}}
+		</li>
+	</ul>
+
+
 	<!--<ul>
 		<li ng-repeat="evento in eventos">
 			{{evento.jugador}}

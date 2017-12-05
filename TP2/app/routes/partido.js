@@ -3,6 +3,7 @@ var router=require('express').Router();
 var Partido = mongoose.model('Partido');
 var Evento = mongoose.model('Evento');
 var TipoEvento = mongoose.model('TipoEvento');
+var Partido = mongoose.model('Partido');
 
 var ObjectId = mongoose.Types.ObjectId;
 
@@ -30,8 +31,14 @@ router.get('/activos', (req, res, next) => {
       model: 'Evento',
       populate: {
         path:'clase_evento',
-        model: 'TipoEvento'
-      }
+        model: 'TipoEvento'}
+  })
+  .populate({
+      path: 'eventos',
+      model: 'Evento',
+      populate: {
+        path:'equipo',
+        model: 'Equipo'}
   })
     .then(partido =>{
         if(!partido){ return res.sendStatus(401); }

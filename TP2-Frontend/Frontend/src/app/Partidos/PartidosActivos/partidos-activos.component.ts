@@ -6,13 +6,13 @@ import { AppService } from 'app/app.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component ({
-    selector: 'lista-partidos-component',
-    templateUrl: './lista-partido.component.html',
-    styleUrls: ['./lista-partido.component.css'],
+    selector: 'partidos-activos-component',
+    templateUrl: './partidos-activos.component.html',
+    styleUrls: ['./partidos-activos.component.css'],
     providers: [AppService]
 })
 
-export class ListaPartidoComponent implements OnInit {
+export class PartidosActivosComponent implements OnInit {
     private partidos = [];
     partidoElegido: Partido;
 
