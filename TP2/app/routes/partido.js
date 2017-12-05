@@ -25,19 +25,20 @@ router.get('/activos', (req, res, next) => {
   Partido.find({estado:"Activo"})
   .populate('equipo1')
   .populate('equipo2')
-  .populate('eventos')
-  //.populate({
-  // path:'eventos.clase_evento',
-   // model:'TipoEvento'})
+  .populate({
+      path: 'eventos',
+      model: 'Evento',
+      populate: {
+        path:'clase_evento',
+        model: 'TipoEvento'
+      }
+  })
     .then(partido =>{
         if(!partido){ return res.sendStatus(401); }
         return res.json(partido)
     })
     .catch(next);
 });
-
-
-
 
 
 //consultar un partido por ID
