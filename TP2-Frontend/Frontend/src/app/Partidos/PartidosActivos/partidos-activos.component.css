@@ -1,7 +1,12 @@
+#partidos-activos {
+  margin-left: 375px;
+}
+
 h3 {
   color: black;
   font-family: serif;
   margin: 0;
+  text-align: center;
   }
 
 h1 {
@@ -15,7 +20,7 @@ h1 {
 }
 
 .container {
-  width:300px;
+  width: 600px;
   height: 20px;
   position: relative;
   float:left;
@@ -23,13 +28,13 @@ h1 {
 }
 
 #btn-drop {
-  width: 400px;
+  width: 600px;
   font-family: serif;
   font-size: 25px;
 }
 
 .dropdown-menu {
-  width: 400px;
+  width: 600px;
   font-size: 25px;
 }
 .caret {
